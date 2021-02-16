@@ -12,12 +12,10 @@ export function BrowseContainer() {
         displayName: "Tomasz",
         photoURL: "1"
     };
-
+    
     return profile.displayName ? (
-        <>
-            <p>Browse Container</p>
+        <><p>Browse Container</p>
             <FooterContainer />
         </>)
-        : (<SelectProfileContainer />
-        );
+        : (<SelectProfileContainer user={user} setProfile={setProfile} />);
 }
