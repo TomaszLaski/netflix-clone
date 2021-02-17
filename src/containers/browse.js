@@ -37,6 +37,19 @@ export function BrowseContainer() {
                     </Header.Group>
                     <Header.Group>
                         <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                        <Header.Profile>
+                            <Header.Picture src={user.photoURL} />
+                            <Header.Dropdown>
+                                <Header.Group>
+                                    <Header.Picture src={user.photoURL} />
+                                    <Header.Link>{user.displayName}</Header.Link>
+                                </Header.Group>
+                                <Header.Group>
+                                    <Header.Link onClick={() => firebase.auth().signOut()}>
+                                        Sign out</Header.Link>
+                                </Header.Group>
+                            </Header.Dropdown>
+                        </Header.Profile>
                     </Header.Group>
                 </Header.Frame>
                 
