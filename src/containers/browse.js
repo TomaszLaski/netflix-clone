@@ -9,9 +9,9 @@ export function BrowseContainer() {
     const [category, setCategory] = useState('series');
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
-
+    
     const { firebase } = useContext(FirebaseContext);
-
+    
     const user = {
         displayName: "Tomasz",
         photoURL: "1"
@@ -19,24 +19,23 @@ export function BrowseContainer() {
     
     return profile.displayName ? (
         <>
-        <Header src="joker1" dontShowOnSmallViewPort>
-            <Header.Frame>
-                <Header.Group>
-                    <Header.Logo tO={ROUTES.HOME} src="/images/misc/logo.svg" alt="Netflix" />
-                    <Header.Link
-                        active={category === 'series' ? 'true' : 'false'}
-                        onClick={() => setCategory('series')}>
-                        Series
-                    </Header.Link>
-                    <Header.Link
-                        active={category === 'Films' ? 'true' : 'false'}
-                        onClick={() => setCategory('series')}>
-                        Films
-                    </Header.Link>
-
-                </Header.Group>
-            </Header.Frame>
-        </Header>
+            <Header src="joker1" dontShowOnSmallViewPort>
+                <Header.Frame>
+                    <Header.Group>
+                        <Header.Logo to={ROUTES.HOME} src="/images/misc/logo.svg" alt="Netflix" />
+                        <Header.Link 
+                            active={category === 'series' ? 'true' : 'false'}
+                            onClick={() => setCategory('series')}>
+                            Series
+                        </Header.Link>
+                        <Header.Link 
+                            active={category === 'films' ? 'true' : 'false'}
+                            onClick={() => setCategory('films')}>
+                            Films
+                        </Header.Link>
+                    </Header.Group>
+                </Header.Frame>
+            </Header>
             <FooterContainer />
         </>)
         : (<SelectProfileContainer user={user} setProfile={setProfile} />);
