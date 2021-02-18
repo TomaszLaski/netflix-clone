@@ -30,12 +30,14 @@ export default function Signup() {
                     photoURL: Math.floor(Math.random() * 5 ) + 1,
                 })
                 .then(() => {
-                    setEmailAddress('');
-                    setPassword('');
-                    setError('');
                     history.push(ROUTES.BROWSE);
                 })
-            ).catch((error) => setError(error.message));
+            )
+            .catch((error) => {
+                setEmailAddress('');
+                setPassword('');
+                setError(error.message);
+            });
     };
     
     return (
@@ -68,7 +70,7 @@ export default function Signup() {
                         </Form.Submit>
                         
                         <Form.Text>
-                            Already a user? <Form.Link to="/signin">Sign up now.</Form.Link>
+                            Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
                         </Form.Text>
                         <Form.TextSmall>
                             This page is protected by Google reCAPTCHA.
