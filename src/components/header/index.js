@@ -14,9 +14,9 @@ import {
     Search,
     SearchIcon,
     SearchInput,
+    Profile,
     Picture,
-    Dropdown,
-    Profile
+    Dropdown
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {

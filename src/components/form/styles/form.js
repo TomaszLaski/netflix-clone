@@ -18,7 +18,7 @@ export const Container = styled.section`
 export const Error = styled.div`
     background: #e87c03;
     border-radius: 4px;
-    font-size:: 14px;
+    font-size: 14px;
     margin: 0 0 16px;
     color: white;
     padding: 15px 20px;
@@ -69,11 +69,10 @@ export const Input = styled.input`
     line-height: 50px;
     padding: 5px 20px;
     margin-bottom: 20px;
-
+    
     &:last-of-type {
         margin-bottom: 30px;
     }
-
 `;
 
 export const Submit = styled.button`

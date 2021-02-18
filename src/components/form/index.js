@@ -3,10 +3,10 @@ import {
     Container, 
     Error, 
     Base, 
-    Title,
-    Link, 
+    Title, 
     Text, 
     TextSmall,
+    Link,
     Input, 
     Submit 
 } from './styles/form';

@@ -14,11 +14,10 @@ export const Title = styled.h1`
     font-size: 50px;
     font-weight: 500;
     margin: auto;
-
+    
     @media (max-width: 600px) {
         font-size: 35px;
     }
-
 `;
 
 export const SubTitle = styled.h2`
