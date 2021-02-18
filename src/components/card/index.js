@@ -8,8 +8,8 @@ import {
     Text,
     Feature,
     FeatureTitle,
-    FeatureClose,
     FeatureText,
+    FeatureClose,
     Maturity,
     Content,
     Meta,
@@ -79,7 +79,7 @@ Card.Feature = function CardFeature({ children, category, ...restProps }) {
     const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
     
     return showFeature ? (
-        <Feature src={`/images/${itemFeature.genre}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>
+        <Feature src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>
             <Content>
                 <FeatureTitle>{itemFeature.title}</FeatureTitle>
                 <FeatureText>{itemFeature.description}</FeatureText>
