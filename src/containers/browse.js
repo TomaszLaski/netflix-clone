@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Fuse from 'fuse.js';
 import { Card, Loading, Header } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
@@ -18,7 +19,7 @@ export function BrowseContainer({ slides }) {
         displayName: "Tomasz",
         photoURL: "1"
     };
-    
+   
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
@@ -28,6 +29,17 @@ export function BrowseContainer({ slides }) {
     useEffect(() => {
         setSlideRows(slides[category]);
     }, [slides, category]);
+    
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
+        const results = fuse.search(searchTerm).map(({ item }) => item);
+        
+        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+            setSlideRows(results);
+        } else {
+            setSlideRows(slides[category]);
+        }
+      }, [searchTerm])
     
     return profile.displayName ? (
         <>
@@ -92,7 +104,7 @@ export function BrowseContainer({ slides }) {
                                 </Card.Item>
                             ))}
                         </Card.Entities>
-                        <Card.Feature>
+                        <Card.Feature category={category}>
                             <p>I am the feature!</p>
                         </Card.Feature>
                     </Card>
