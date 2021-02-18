@@ -14,14 +14,13 @@ const config = {
     appId: "1:464693240837:web:6569b63e7a81cdbe12686c"
   }
 
-  const firebase = window.firebase.initializeApp(config);
-  
+const firebase = window.firebase.initializeApp(config);
+
+
 ReactDOM.render(
-    <>
-        <FirebaseContext.Provider value={{ firebase: window.firebase }}>
-            <GlobalStyles />
-            <App />
-        </FirebaseContext.Provider>
-    </>, 
+    <FirebaseContext.Provider value={{ firebase: window.firebase }}>
+        <GlobalStyles />
+        <App />
+    </FirebaseContext.Provider>, 
     document.getElementById('root')
 );
